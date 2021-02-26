@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
 
 	"github.com/gocolly/colly"
 )
@@ -11,8 +13,8 @@ type Restaurant struct {
 	Photo    string
 	Cuisine  string
 	Location string
-	Summary  string
-	Rating   string
+	// Summary  string
+	Rating string
 }
 
 type City struct {
@@ -31,31 +33,31 @@ type Country struct {
 	States  map[string]*State
 }
 
-func scrapeRestaurant(restaurantInfo *Restaurant) {
-	// link_selector := "#header > table > tbody > tr > td:nth-child(3) > div.titleBS > a"
-	// link_selector := "#header > table > tbody > tr"
+// func scrapeRestaurant(restaurantInfo *Restaurant) {
+// 	// link_selector := "#header > table > tbody > tr > td:nth-child(3) > div.titleBS > a"
+// 	// link_selector := "#header > table > tbody > tr"
 
-	fmt.Println("Restaurant: ", restaurantInfo.Name)
-	fmt.Println("Photo: ", restaurantInfo.Photo)
-	fmt.Println("Cuisine: ", restaurantInfo.Cuisine)
-	fmt.Println("Location: ", restaurantInfo.Location)
-	fmt.Println("Rating: ", restaurantInfo.Rating)
+// 	fmt.Println("Restaurant: ", restaurantInfo.Name)
+// 	fmt.Println("Photo: ", restaurantInfo.Photo)
+// 	fmt.Println("Cuisine: ", restaurantInfo.Cuisine)
+// 	fmt.Println("Location: ", restaurantInfo.Location)
+// 	fmt.Println("Rating: ", restaurantInfo.Rating)
 
-	x := colly.NewCollector(
-		colly.AllowedDomains("zabihah.com", "www.zabihah.com"),
-	)
+// 	x := colly.NewCollector(
+// 		colly.AllowedDomains("zabihah.com", "www.zabihah.com"),
+// 	)
 
-	// x.OnHTML(link_selector, func(p *colly.HTMLElement) {
-	// 	// for loop, to get each individual restaurant
-	// 	p.ForEach("tr > td:nth-child(3)", func(_ int, h *colly.HTMLElement) {
-	// 		link := h.ChildAttr("a", "href")
-	// 		fmt.Printf("Restaurant link found: -> %s\n", link)
+// 	// x.OnHTML(link_selector, func(p *colly.HTMLElement) {
+// 	// 	// for loop, to get each individual restaurant
+// 	// 	p.ForEach("tr > td:nth-child(3)", func(_ int, h *colly.HTMLElement) {
+// 	// 		link := h.ChildAttr("a", "href")
+// 	// 		fmt.Printf("Restaurant link found: -> %s\n", link)
 
-	// 	})
-	// })
+// 	// 	})
+// 	// })
 
-	x.Visit(restaurantInfo.Name)
-}
+// 	x.Visit(restaurantInfo.Name)
+// }
 
 func scrapeCity(cityInfo *City) {
 
@@ -86,13 +88,28 @@ func scrapeCity(cityInfo *City) {
 			link := h.ChildAttr("a", "href")
 			fmt.Printf("Restaurant link found: -> %s\n", link)
 
+			// fmt.Println("Restaurant Name: ", tmpRestaurant.Name)
+			// fmt.Println("Photo: ", tmpRestaurant.Photo)
+			// fmt.Println("Cuisine: ", tmpRestaurant.Cuisine)
+			// fmt.Println("Location: ", tmpRestaurant.Location)
+			// fmt.Println("Rating: ", tmpRestaurant.Rating)
+
 		})
+		js, err := json.MarshalIndent(tmpRestaurant, "", "    ")
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println(string(js))
 	})
 
+	// y.OnRequest(func(h *colly.Request) {
+	// 	fmt.Println("Visiting City Link: ", h.URL.String())
+	// })
+
 	y.Visit(cityInfo.Link)
-	for _, restaurant := range restaurants {
-		scrapeRestaurant(&restaurant)
-	}
+	// for _, restaurant := range restaurants {
+	// 	scrapeRestaurant(&restaurant)
+	// }
 
 }
 
