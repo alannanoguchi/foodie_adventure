@@ -7,8 +7,8 @@ import (
 )
 
 type Restaurant struct {
-	Name string
-	// Photo    string
+	Name     string
+	Photo    string
 	Cuisine  string
 	Location string
 	Summary  string
@@ -33,9 +33,10 @@ type Country struct {
 
 func scrapeRestaurant(restaurantInfo *Restaurant) {
 	// link_selector := "#header > table > tbody > tr > td:nth-child(3) > div.titleBS > a"
-	link_selector := "#header > table > tbody > tr"
+	// link_selector := "#header > table > tbody > tr"
 
-	fmt.Println("Name: ", restaurantInfo.Name)
+	fmt.Println("Restaurant: ", restaurantInfo.Name)
+	fmt.Println("Photo: ", restaurantInfo.Photo)
 	fmt.Println("Cuisine: ", restaurantInfo.Cuisine)
 	fmt.Println("Location: ", restaurantInfo.Location)
 	fmt.Println("Rating: ", restaurantInfo.Rating)
@@ -44,14 +45,14 @@ func scrapeRestaurant(restaurantInfo *Restaurant) {
 		colly.AllowedDomains("zabihah.com", "www.zabihah.com"),
 	)
 
-	x.OnHTML(link_selector, func(p *colly.HTMLElement) {
-		// for loop, to get each individual restaurant
-		p.ForEach("tr > td:nth-child(3)", func(_ int, h *colly.HTMLElement) {
-			link := h.ChildAttr("a", "href")
-			fmt.Printf("Restaurant link found: -> %s\n", link)
+	// x.OnHTML(link_selector, func(p *colly.HTMLElement) {
+	// 	// for loop, to get each individual restaurant
+	// 	p.ForEach("tr > td:nth-child(3)", func(_ int, h *colly.HTMLElement) {
+	// 		link := h.ChildAttr("a", "href")
+	// 		fmt.Printf("Restaurant link found: -> %s\n", link)
 
-		})
-	})
+	// 	})
+	// })
 
 	x.Visit(restaurantInfo.Name)
 }
@@ -73,6 +74,7 @@ func scrapeCity(cityInfo *City) {
 
 		tmpRestaurant := Restaurant{}
 		tmpRestaurant.Name = p.ChildText("#header > table > tbody > tr > td:nth-child(3) > div.titleBS > a")
+		tmpRestaurant.Photo = p.ChildAttr("td:nth-child(1) > a > img", "src")
 		tmpRestaurant.Cuisine = p.ChildText("#alertBox2")
 		tmpRestaurant.Location = p.ChildText("#header > table > tbody > tr > td:nth-child(3) > div.tinyLink")
 		tmpRestaurant.Rating = p.ChildText("#badge_score")
