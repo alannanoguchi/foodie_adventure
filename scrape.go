@@ -35,7 +35,10 @@ func scrapeRestaurant(restaurantInfo *Restaurant) {
 	// link_selector := "#header > table > tbody > tr > td:nth-child(3) > div.titleBS > a"
 	link_selector := "#header > table > tbody > tr"
 
-	fmt.Println(restaurantInfo.Name)
+	fmt.Println("Name: ", restaurantInfo.Name)
+	fmt.Println("Cuisine: ", restaurantInfo.Cuisine)
+	fmt.Println("Location: ", restaurantInfo.Location)
+	fmt.Println("Rating: ", restaurantInfo.Rating)
 
 	x := colly.NewCollector(
 		colly.AllowedDomains("zabihah.com", "www.zabihah.com"),
@@ -56,6 +59,7 @@ func scrapeRestaurant(restaurantInfo *Restaurant) {
 func scrapeCity(cityInfo *City) {
 
 	var restaurants []Restaurant
+
 	//this function will scrape one specific city
 	selector := "body > table:nth-child(7) > tbody > tr > td:nth-child(1) > table > tbody > tr > td > table >  tbody > tr > td > div:nth-child(1)"
 
