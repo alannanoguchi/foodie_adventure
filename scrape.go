@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"time"
 
 	"github.com/gocolly/colly"
 )
@@ -88,13 +89,8 @@ func scrapeCity(cityInfo *City) {
 			link := h.ChildAttr("a", "href")
 			fmt.Printf("Restaurant link found: -> %s\n", link)
 
-			// fmt.Println("Restaurant Name: ", tmpRestaurant.Name)
-			// fmt.Println("Photo: ", tmpRestaurant.Photo)
-			// fmt.Println("Cuisine: ", tmpRestaurant.Cuisine)
-			// fmt.Println("Location: ", tmpRestaurant.Location)
-			// fmt.Println("Rating: ", tmpRestaurant.Rating)
-
 		})
+
 		js, err := json.MarshalIndent(tmpRestaurant, "", "    ")
 		if err != nil {
 			log.Fatal(err)
@@ -116,6 +112,8 @@ func scrapeCity(cityInfo *City) {
 func main() {
 	var cities []City
 	city_selector := "body > table:nth-child(7) > tbody > tr > td:nth-child(1) > table:nth-child(11) > tbody > tr"
+
+	time.Sleep(5 * time.Second)
 
 	c := colly.NewCollector(
 		colly.AllowedDomains("zabihah.com", "www.zabihah.com"),
@@ -143,6 +141,8 @@ func main() {
 	startUrl := fmt.Sprintf("https://www.zabihah.com/reg/United-States/California/C3Jynwv1mE")
 	c.Visit(startUrl)
 	for _, city := range cities {
-		scrapeCity(&city)
+		go scrapeCity(&city)
+		time.Sleep(2 * time.Second) // Still doesn't show all restaurants
+		fmt.Println("End")
 	}
 }
