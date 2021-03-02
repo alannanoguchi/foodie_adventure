@@ -62,6 +62,8 @@ type Country struct {
 
 func scrapeCity(cityInfo *City) {
 
+	// channel <- City{City: city, Link: link, Restaurants: []*Restaurant }
+
 	var restaurants []Restaurant
 
 	//this function will scrape one specific city
@@ -103,14 +105,26 @@ func scrapeCity(cityInfo *City) {
 	// })
 
 	y.Visit(cityInfo.Link)
-	// for _, restaurant := range restaurants {
-	// 	scrapeRestaurant(&restaurant)
-	// }
+}
 
+func scrapeWorker(cities chan *City) {
+	for city := range cities {
+		scrapeCity(city)
+	}
 }
 
 func main() {
-	var cities []City
+
+	cityChan := make(chan *City)
+
+	// Created 5 workers
+	for i := 0; i < 5; i++ {
+		go scrapeWorker(cityChan)
+	}
+	// go scrapeWorker(cityChan)
+	// channel <- City{City: city, Link: link, Restaurants: []*Restaurant }
+
+	var cities []*City // a list of references
 	city_selector := "body > table:nth-child(7) > tbody > tr > td:nth-child(1) > table:nth-child(11) > tbody > tr"
 
 	time.Sleep(5 * time.Second)
@@ -131,7 +145,8 @@ func main() {
 			tmpCity.Link = "https://www.zabihah.com" + e.ChildAttr("td:nth-child(1) > div > a", "href")
 		}
 
-		cities = append(cities, tmpCity)
+		cityChan <- &tmpCity
+		cities = append(cities, &tmpCity)
 	})
 
 	c.OnRequest(func(r *colly.Request) {
@@ -140,9 +155,7 @@ func main() {
 
 	startUrl := fmt.Sprintf("https://www.zabihah.com/reg/United-States/California/C3Jynwv1mE")
 	c.Visit(startUrl)
-	for _, city := range cities {
-		go scrapeCity(&city)
-		time.Sleep(2 * time.Second) // Still doesn't show all restaurants
-		fmt.Println("End")
-	}
+
+	close(cityChan)
+
 }
