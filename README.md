@@ -16,7 +16,9 @@ of the place to help verify that it is Halal.
 ```bash
 📂 foodie_adventure
 ├── MakeUtility.md
+├── README.md
 ├── proposal.md
+├── scrape
 ├── scrape.go
 ├── scraped_data.json
 └── test_scrape.go
