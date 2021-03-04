@@ -49,7 +49,7 @@ func scrapeCity(cityInfo *City) {
 
 		tmpRestaurant := Restaurant{}
 		tmpRestaurant.Name = p.ChildText("#header > table > tbody > tr > td:nth-child(3) > div.titleBS > a")
-		tmpRestaurant.Link = p.ChildText("")
+		tmpRestaurant.Link = p.ChildAttr("a", "href")
 		tmpRestaurant.Photo = p.ChildAttr("td:nth-child(1) > a > img", "src")
 		tmpRestaurant.Cuisine = p.ChildText("#alertBox2")
 		tmpRestaurant.Location = p.ChildText("#header > table > tbody > tr > td:nth-child(3) > div.tinyLink")

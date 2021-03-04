@@ -1,11 +1,1 @@
 The problem I want to solve is: finding Halal restaurants. As someone who eats Halal food, finding a place to eat isn't very easy. Even with the help of other applications like Yelp!, it still requires more research to make sure that the place you are eating at is Halal. I've found a website called Zabihah.com which helps find Halal restaurants. I like that it provides a "Halal Summary" that provides a description of how the restaurant is Halal. One big problem that I have with this website is that it is slow. I want to build a web scraper that scrapes all the information from this website and categorize all information based on the city you want to find a restaurant in. 
-
-Example:
-<h1>California</h1>
-
-<h2> Sacramento </h2>
-<div>1. KB Thai Hut 2. Ariana's Kabob and Gyro </div>
-
-<h2> Davis </h2>
-<div>1. Halal Guys </div>
-
