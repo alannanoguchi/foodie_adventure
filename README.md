@@ -2,7 +2,7 @@
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/url/of/your-module)
 
 <p align=center>
-  <img src="https://media.giphy.com/media/1qeMM8o8OUtpSy2075/giphy.gif">
+  <img src="https://s3-media0.fl.yelpcdn.com/bphoto/bQ6ruT6eYidevObZ6b2MXQ/o.jpg" width="700" height="600">
 </p>
 
 ## Purpose of this Project: 
