@@ -2,7 +2,7 @@
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/url/of/your-module)
 
 <p align=center>
-  <img src="https://lh3.googleusercontent.com/proxy/dCqMnRD6zwPChn-LbKJUDqP_WzPMZnpQjoSiQdHqiSZWsa1gzoEAm_RMTov1-vbJbL69eCoSTNtUXQLFHjgfhbEbRiWDSQNmF-iE50qiEIv9M9vuflC9O6QNoV_vX-C398UwEN9SuZTwoR7RjTX07tTpsZOmymRc8lB7sG5dOA">
+  <img src="https://media.giphy.com/media/1qeMM8o8OUtpSy2075/giphy.gif">
 </p>
 
 ## Purpose of this Project: 
