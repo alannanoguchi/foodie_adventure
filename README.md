@@ -9,7 +9,6 @@
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/bQ6ruT6eYidevObZ6b2MXQ/o.jpg" width="150" height="100">
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/S_kXiJ2fr_hWJ6BGxIOQrQ/o.jpg" width="150" height="100">
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/bQ6ruT6eYidevObZ6b2MXQ/o.jpg" width="150" height="100">
-    <img src="https://s3-media0.fl.yelpcdn.com/bphoto/S_kXiJ2fr_hWJ6BGxIOQrQ/o.jpg" width="150" height="100">
 
   </div>
   <div class="column">
@@ -18,7 +17,6 @@
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/S_kXiJ2fr_hWJ6BGxIOQrQ/o.jpg" width="150" height="100">
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/bQ6ruT6eYidevObZ6b2MXQ/o.jpg" width="150" height="100">
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/S_kXiJ2fr_hWJ6BGxIOQrQ/o.jpg" width="150" height="100">
-    <img src="https://s3-media0.fl.yelpcdn.com/bphoto/bQ6ruT6eYidevObZ6b2MXQ/o.jpg" width="150" height="100">
   
   </div>
   <div class="column">
@@ -27,7 +25,6 @@
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/bQ6ruT6eYidevObZ6b2MXQ/o.jpg" width="150" height="100">
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/S_kXiJ2fr_hWJ6BGxIOQrQ/o.jpg" width="150" height="100">
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/bQ6ruT6eYidevObZ6b2MXQ/o.jpg" width="150" height="100">
-    <img src="https://s3-media0.fl.yelpcdn.com/bphoto/S_kXiJ2fr_hWJ6BGxIOQrQ/o.jpg" width="150" height="100">
    
   </div>
   <div class="column">
@@ -36,7 +33,6 @@
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/S_kXiJ2fr_hWJ6BGxIOQrQ/o.jpg" width="150" height="100">
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/bQ6ruT6eYidevObZ6b2MXQ/o.jpg" width="150" height="100">
     <img src="https://s3-media0.fl.yelpcdn.com/bphoto/S_kXiJ2fr_hWJ6BGxIOQrQ/o.jpg" width="150" height="100">
-    <img src="https://s3-media0.fl.yelpcdn.com/bphoto/bQ6ruT6eYidevObZ6b2MXQ/o.jpg" width="150" height="100">
   
   </div>
 
